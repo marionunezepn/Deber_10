@@ -3,7 +3,7 @@ import random
 import time
 
 root = Tk()
-root.title("Testing... testing...")
+root.title("BOUNCE")
 root.resizable(0,0)
 root.wm_attributes("-topmost", -1)
 canvas = Canvas(root, width=500, height=400, bd=0,highlightthickness=0)
@@ -102,6 +102,9 @@ def game_over():
 def contador():
     canvas.itemconfig(tiempo,text="tiempo:")
 
+def xy():
+    canvas.itemconfig(coordenadas,text="coordenadas:")
+
 
 paddle = Paddle(canvas, "blue")
 ball = Ball(canvas, paddle, "red")
@@ -110,6 +113,8 @@ ball = Ball(canvas, paddle, "red")
 score_now = canvas.create_text(430, 20, text="score: " + str(count), fill = "red", font=("Arial", 16))
 game = canvas.create_text(250, 150, text=" ", fill="red", font=("Arial", 20))
 tiempo = canvas.create_text(50,20,text="time: ",fill = "red", font=("Arial", 16))
+coordenadas = canvas.create_text(200,20,text="coordenadas: ",fill = "red", font=("Arial", 16))
+
 
 canvas.bind_all("<Button-1>", start_game)
 
